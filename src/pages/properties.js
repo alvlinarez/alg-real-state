@@ -1,14 +1,12 @@
 import React from 'react';
 import Layout from '../components/layout';
 
-const AboutUs = () => {
+const Properties = () => {
   return (
     <Layout>
-      <h1>
-        About Us
-      </h1>
+      <h1>Properties</h1>
     </Layout>
   );
 };
 
-export default AboutUs;
+export default Properties;

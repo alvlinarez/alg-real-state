@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Global, css } from '@emotion/core';
+import Header from './header';
 
 const Layout = ({ children }) => {
   return (
@@ -65,6 +66,9 @@ const Layout = ({ children }) => {
           rel="stylesheet"
         />
       </Helmet>
+
+      <Header />
+
       {children}
     </>
   );
