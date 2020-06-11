@@ -28,6 +28,18 @@ module.exports = {
         icon: `src/images/real-state.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: 'http://localhost:1337',
+        queryLimit: 1000,
+        contentTypes: [
+          'properties',
+          'pages',
+          'categories'
+        ]
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
