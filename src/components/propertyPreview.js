@@ -2,6 +2,21 @@ import React from 'react';
 import Icons from './icons';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
+import { Link } from 'gatsby';
+import urlSlug from 'url-slug'
+
+const PropertyLink = styled(Link)`
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #75ab00;
+  width: 100%;
+  color: #ffffff;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+`;
 
 const Card = styled.div`
   border: 1px solid #e1e1e1;
@@ -37,6 +52,9 @@ const PropertyPreview = ({property}) => {
           parking={parking}
           rooms={rooms}
         />
+        <PropertyLink to={urlSlug(name)}>
+          View Property
+        </PropertyLink>
       </CardContent>
     </Card>
   );

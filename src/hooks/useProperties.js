@@ -31,20 +31,18 @@ const useProperties = () => {
       }
     }
   `);
-  return data.allStrapiProperties.nodes.map(
-    property => ({
-      name: property.name,
-      description: property.description,
-      image: property.image,
-      id: property.id,
-      wc: property.wc,
-      parking: property.parking,
-      rooms: property.rooms,
-      agent: property.agent,
-      price: property.price,
-      category: property.category
-    })
-  );
+  return data.allStrapiProperties.nodes.map((property) => ({
+    name: property.name,
+    description: property.description,
+    image: property.image,
+    id: property.id,
+    wc: property.wc,
+    parking: property.parking,
+    rooms: property.rooms,
+    agent: property.agent,
+    price: property.price,
+    category: property.category,
+  }));
 };
 
 export default useProperties;
