@@ -3,14 +3,25 @@ import { css } from '@emotion/core';
 import useProperties from '../hooks/useProperties';
 import PropertyPreview from './propertyPreview';
 import propertiesListCSS from '../css/propertiesList.module.css';
+import useFilterProperties from '../hooks/useFilterProperties';
 
 const PropertiesList = () => {
   const res = useProperties();
-  const [ properties, setProperties ] = useState([]);
+  const [properties] = useState(res);
+  const [filteredProperties, setFilteredProperties] = useState([]);
+
+  const { category, FilterUI } = useFilterProperties();
 
   useEffect(() => {
-      setProperties(res);
-  }, []);
+    if (category) {
+      const filter = properties.filter(
+        (property) => property.category.name === category
+      );
+      setFilteredProperties(filter);
+    } else {
+      setFilteredProperties(properties);
+    }
+  }, [category]);
 
   return (
     <>
@@ -19,14 +30,13 @@ const PropertiesList = () => {
           margin-top: 5rem;
         `}
       >
-        List
+        Our Properties
       </h2>
+      {FilterUI()}
       <ul className={propertiesListCSS.properties}>
-        {
-          properties.map(property => (
-            <PropertyPreview property={property} key={property.id}/>
-          ))
-        }
+        {filteredProperties.map((property) => (
+          <PropertyPreview property={property} key={property.id} />
+        ))}
       </ul>
     </>
   );
