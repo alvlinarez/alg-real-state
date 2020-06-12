@@ -21,7 +21,7 @@ const PropertiesList = () => {
     } else {
       setFilteredProperties(properties);
     }
-  }, [category]);
+  }, [category, properties]);
 
   return (
     <>
