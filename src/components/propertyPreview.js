@@ -3,7 +3,7 @@ import Icons from './icons';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
 import { Link } from 'gatsby';
-import urlSlug from 'url-slug'
+import urlSlug from 'url-slug';
 
 const PropertyLink = styled(Link)`
   margin-top: 2rem;
@@ -38,23 +38,17 @@ const CardContent = styled.div`
   }
 `;
 
-const PropertyPreview = ({property}) => {
-  const { name, description, image, wc, parking, rooms, price } = property;
+const PropertyPreview = ({ property }) => {
+  const { name, image, wc, parking, rooms, price } = property;
   return (
     <Card>
       <Image fluid={image.sharp.fluid} />
       <CardContent>
         <h3>{name}</h3>
-        <p className='price'>$ {price}</p>
+        <p className="price">$ {price}</p>
 
-        <Icons
-          wc={wc}
-          parking={parking}
-          rooms={rooms}
-        />
-        <PropertyLink to={urlSlug(name)}>
-          View Property
-        </PropertyLink>
+        <Icons wc={wc} parking={parking} rooms={rooms} />
+        <PropertyLink to={urlSlug(name)}>View Property</PropertyLink>
       </CardContent>
     </Card>
   );
